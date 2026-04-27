@@ -1,56 +1,57 @@
 # Marketing Science Portfolio
-### Causal Inference & Incrementality Measurement
 
-This repository contains applied marketing science work focused on **causal measurement frameworks** — the methods that tell you what actually *caused* a business outcome, not just what correlated with it.
+Causal inference and incrementality measurement — the part of analytics where the question is harder than the math.
 
-Built by a Director-level analytics leader with experience designing and scaling experimentation programs across large retail and e-commerce organizations.
+Just saving some notes here to document my thoughts and process running GEO holdout analysis. 
 
 ---
 
-## Projects
+## What's here
 
 ### 📊 [Geo Holdout Test: Measuring Paid Search Incrementality](./geo_holdout_incrementality.ipynb)
 
-**Business question:** How many bookings does paid search actually drive — beyond what organic demand would have produced anyway?
+The question that started this: how many bookings does paid search actually drive, versus how many would have happened anyway?
 
-**Method:** Geo holdout experiment + Difference-in-Differences (DiD) estimation
+Last-click attribution has a convenient answer to that question. It's also usually wrong. This notebook works through a geo holdout framework — the method I'd reach for first when you need a defensible, business-ready incrementality estimate for a paid channel.
 
-**What's inside:**
-- Methodology selection rationale (geo holdout vs. MMM vs. user-level A/B)
-- Experimental design: market selection criteria, parallel trends validation, power considerations
-- Full DiD regression with confidence intervals and coefficient visualization
-- Business translation: incremental ROAS, scenario ranges, and an explicit go/no-go recommendation
-- Documented assumptions and conditions that would change the recommendation
+**What's covered:**
+- Why geo holdout over MMM or user-level A/B (and when that call changes)
+- Market selection and the parallel trends check most teams skip
+- Difference-in-Differences estimation with confidence intervals
+- Translating the output into an actual budget recommendation — not just a lift number
 
-**Tools:** Python · pandas · statsmodels · matplotlib · scipy
-
----
-
-## Measurement Philosophy
-
-Good incrementality measurement answers three questions in order:
-
-1. **Is the effect real?** — statistical validity, parallel trends, significance
-2. **How big is it?** — effect size, confidence interval, practical significance
-3. **What should we do about it?** — business recommendation with explicit assumptions
-
-Most measurement work stops at #1 or #2. The value is in #3.
+**Stack:** Python · pandas · statsmodels · matplotlib · scipy
 
 ---
 
-## Methods Covered (Roadmap)
+## How I think about measurement
 
-| Method | Notebook | Status |
+Getting to a statistically significant result is the easy part. The harder questions are:
+
+- Is the effect size meaningful enough to act on?
+- What would have to be true for this recommendation to be wrong?
+- What does the business actually do differently because of this number?
+
+Most measurement work I've seen stops before those questions. That's the gap I'm interested in closing.
+
+---
+
+## What's next
+
+| Notebook | Method | Status |
 |---|---|---|
-| Geo Holdout + DiD | `geo_holdout_incrementality.ipynb` | ✅ Published |
-| Synthetic Control | `synthetic_control.ipynb` | 🔜 Coming |
-| Causal Inference Method Comparison | `method_comparison.ipynb` | 🔜 Coming |
-| AI-Augmented Measurement Workflow | `ai_measurement_workflow.ipynb` | 🔜 Coming |
+| `geo_holdout_incrementality.ipynb` | Geo Holdout + DiD | ✅ Live |
+| `synthetic_control.ipynb` | Synthetic Control | 🔜 In progress |
+| `method_comparison.ipynb` | DiD vs SC vs PSM — when to use which | 🔜 In progress |
+| `ai_measurement_workflow.ipynb` | AI-augmented analytical workflows | 🔜 In progress |
 
 ---
 
 ## About
 
-I'm a data and analytics leader focused on the intersection of **causal measurement, business strategy, and marketing effectiveness**. This portfolio reflects the type of thinking I bring to marketing science problems — from experimental design through to executive recommendation.
+Analytics leader with a background in large-scale experimentation, marketing measurement, and the unglamorous work of getting organizations to actually use what the data says.
 
-Connect on [LinkedIn](https://www.linkedin.com/in/oliviapan) · Questions or collaboration: open an issue.
+Previously: Nike, Director of BI Development (2018–2026).  
+Currently: building in public.
+
+[GitHub](https://github.com/olieepop) · [LinkedIn](https://www.linkedin.com/in/oliviapan)
