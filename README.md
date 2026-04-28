@@ -2,7 +2,7 @@
 
 Causal inference and incrementality measurement - the part of analytics where the question is harder than the math.
 
-Just saving some notes here to document my thoughts and process running GEO holdout analysis. 
+I spent the past few years building and scaling measurement programs, standardizing experimentation across channels, translating statistical outputs into budget decisions, and learning the hard way that most attribution is confidently wrong. This portfolio is where I work through the methods I actually care about.
 
 ---
 
@@ -36,12 +36,37 @@ Most measurement work I've seen stops before those questions. That's the gap I'm
 
 ---
 
+###🧪 Synthetic Control: 'Shop the Look' Feature Impact**
+
+A UX feature launches in North America only. No user-level holdout is possible — it's in the UI. No other region is a clean twin for NA. Standard DiD fails the parallel trends check. So: Synthetic Control.
+This notebook builds a weighted combination of donor countries (UK, Germany, France, Australia, Japan, South Korea, Brazil, Mexico, Netherlands) that reproduces NA's pre-launch conversion trajectory, then measures the post-launch gap across four outcomes.
+
+## What's covered:
+
+- Why parallel trends fails here — shown explicitly, not assumed
+- SC weight optimization via constrained least squares (scipy)
+- Placebo permutation tests — the right significance test when you have 9 donor units, not 900
+- Four SC estimates from one set of weights: conversion, basket size, bundle mix, repeat visits
+- A recommendation built on the pattern of effects, not just the headline number
+
+**Stack:** Python · numpy · pandas · scipy · matplotlib
+
+## How I think about measurement
+
+Getting to a statistically significant result is the easy part. The harder questions are:
+
+- Is the effect size meaningful enough to act on?
+- What would have to be true for this recommendation to be wrong?
+- What does the business actually do differently because of this number?
+
+Most measurement work I've seen stops before those questions. That's the gap I'm interested in closing.
+
 ## What's next
 
 | Notebook | Method | Status |
 |---|---|---|
 | `geo_holdout_incrementality.ipynb` | Geo Holdout + DiD | ✅ Live |
-| `synthetic_control.ipynb` | Synthetic Control | 🔜 In progress |
+| `synthetic_control.ipynb` | Synthetic Control | ✅ Live  |
 | `method_comparison.ipynb` | DiD vs SC vs PSM — when to use which | 🔜 In progress |
 | `ai_measurement_workflow.ipynb` | AI-augmented analytical workflows | 🔜 In progress |
 
