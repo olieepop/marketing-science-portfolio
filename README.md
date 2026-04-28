@@ -1,6 +1,6 @@
 # Marketing Science Portfolio
 
-Causal inference and incrementality measurement — the part of analytics where the question is harder than the math.
+Causal inference and incrementality measurement - the part of analytics where the question is harder than the math.
 
 Just saving some notes here to document my thoughts and process running GEO holdout analysis. 
 
@@ -10,9 +10,9 @@ Just saving some notes here to document my thoughts and process running GEO hold
 
 ### 📊 [Geo Holdout Test: Measuring Paid Search Incrementality](./geo_holdout_incrementality.ipynb)
 
-The question that started this: how many bookings does paid search actually drive, versus how many would have happened anyway?
+This is a common question business usually encounter : how many bookings/demand/orders/sales do paid search actually drive, versus how many would have happened anyway?
 
-Last-click attribution has a convenient answer to that question. It's also usually wrong. This notebook works through a geo holdout framework — the method I'd reach for first when you need a defensible, business-ready incrementality estimate for a paid channel.
+Last-click attribution has a convenient answer to that question. It's also usually wrong considering it usually captures how conversion was made but not created. This notebook works through a geo holdout framework : the method I'd reach for first when you need a defensible, business-ready incrementality estimate for a paid channel.
 
 **What's covered:**
 - Why geo holdout over MMM or user-level A/B (and when that call changes)
