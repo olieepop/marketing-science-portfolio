@@ -49,9 +49,6 @@ Most measurement work I've seen stops before those questions. That's the gap I'm
 
 ## About
 
-Analytics leader with a background in large-scale consumer insights, product/UX experimentation, marketing measurement, and the unglamorous work of getting organizations to actually use what the data says. (at lesat I tried.)
-
-Previously: Nike, Director of BI Development (2018–2026).  
-Currently: building in public.
+An Analytics leader with a background in large-scale consumer insights, product/UX experimentation, marketing measurement, and the unglamorous work of getting organizations to actually use what the data says. (at lesat I tried.)
 
 [GitHub](https://github.com/olieepop) · [LinkedIn](https://www.linkedin.com/in/oliviapan)
