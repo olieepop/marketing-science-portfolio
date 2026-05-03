@@ -1,79 +1,80 @@
 # Marketing Science Portfolio
 
-Causal inference and incrementality measurement - the part of analytics where the question is harder than the math.
+**Olivia** · Director of BI Development → Incrementality & Measurement
 
-I spent the past few years building and scaling measurement programs, standardizing experimentation across channels, translating statistical outputs into budget decisions, and learning the hard way that most attribution is confidently wrong. This portfolio is where I work through the methods I actually care about.
+A portfolio of applied causal inference projects built on realistic synthetic data. Each notebook tackles a real measurement problem a practitioner would face — wrong method for the context, and your number falls apart under scrutiny. These are designed to show not just the math, but the *reasoning* behind method selection.
 
----
-
-## What's here
-
-### 📊 [Geo Holdout Test: Measuring Paid Search Incrementality](./geo_holdout_incrementality.ipynb)
-
-This is a common question business usually encounter : how many bookings/demand/orders/sales do paid search actually drive, versus how many would have happened anyway?
-
-Last-click attribution has a convenient answer to that question. It's also usually wrong considering it usually captures how conversion was made but not created. This notebook works through a geo holdout framework : the method I'd reach for first when you need a defensible, business-ready incrementality estimate for a paid channel.
-
-**What's covered:**
-- Why geo holdout over MMM or user-level A/B (and when that call changes)
-- Market selection and the parallel trends check most teams skip
-- Difference-in-Differences estimation with confidence intervals
-- Translating the output into an actual budget recommendation — not just a lift number
-
-**Stack:** Python · pandas · statsmodels · matplotlib · scipy
+All scenarios are travel e-commerce. All methods execute end-to-end with ground truth embedded so recovery accuracy is scoreable.
 
 ---
 
-## How I think about measurement
+## Projects
 
-Getting to a statistically significant result is the easy part. The harder questions are:
-
-- Is the effect size meaningful enough to act on?
-- What would have to be true for this recommendation to be wrong?
-- What does the business actually do differently because of this number?
-
-Most measurement work I've seen stops before those questions. That's the gap I'm interested in closing.
-
----
-
-###🧪 Synthetic Control: 'Shop the Look' Feature Impact**
-
-A UX feature launches in North America only. No user-level holdout is possible — it's in the UI. No other region is a clean twin for NA. Standard DiD fails the parallel trends check. So: Synthetic Control.
-This notebook builds a weighted combination of donor countries (UK, Germany, France, Australia, Japan, South Korea, Brazil, Mexico, Netherlands) that reproduces NA's pre-launch conversion trajectory, then measures the post-launch gap across four outcomes.
-
-## What's covered:
-
-- Why parallel trends fails here — shown explicitly, not assumed
-- SC weight optimization via constrained least squares (scipy)
-- Placebo permutation tests — the right significance test when you have 9 donor units, not 900
-- Four SC estimates from one set of weights: conversion, basket size, bundle mix, repeat visits
-- A recommendation built on the pattern of effects, not just the headline number
-
-**Stack:** Python · numpy · pandas · scipy · matplotlib
-
-## How I think about measurement
-
-Getting to a statistically significant result is the easy part. The harder questions are:
-
-- Is the effect size meaningful enough to act on?
-- What would have to be true for this recommendation to be wrong?
-- What does the business actually do differently because of this number?
-
-Most measurement work I've seen stops before those questions. That's the gap I'm interested in closing.
-
-## What's next
-
-| Notebook | Method | Status |
-|---|---|---|
-| `geo_holdout_incrementality.ipynb` | Geo Holdout + DiD | ✅ Live |
-| `synthetic_control.ipynb` | Synthetic Control | ✅ Live  |
-| `method_comparison.ipynb` | DiD vs SC vs PSM — when to use which | 🔜 In progress |
-| `ai_measurement_workflow.ipynb` | AI-augmented analytical workflows | 🔜 In progress |
+| # | Notebook | Scenario | Method | Status |
+|---|----------|----------|--------|--------|
+| 1 | [`geo_holdout_incrementality.ipynb`](geo_holdout_incrementality.ipynb) | $15M paid search budget decision | Geo holdout + DiD | ✅ Live |
+| 2 | [`synthetic_control_shop_the_look.ipynb`](synthetic_control_shop_the_look.ipynb) | 'Shop the Look' UX feature launch — North America | Synthetic Control + placebo permutation | ✅ Live |
+| 3 | [`method_comparison.ipynb`](method_comparison.ipynb) | Loyalty program rollout — same question, three designs | DiD vs. Synthetic Control vs. PSM head-to-head | ✅ Live |
+| 4 | `ai_measurement_workflow.ipynb` | AI-augmented analytical workflows | TBD | 🔜 Coming |
 
 ---
 
-## About
+## Project Summaries
 
-An Analytics leader with a background in large-scale consumer insights, product/UX experimentation, marketing measurement, and the unglamorous work of getting organizations to actually use what the data says. (at lesat I tried.)
+### P1 — Geo Holdout Incrementality
+**Scenario:** A travel e-commerce platform is deciding whether to cut $15M in paid search spend. The question: is the channel driving incremental revenue, or capturing demand that would have converted anyway?
 
-[GitHub](https://github.com/olieepop) · [LinkedIn](https://www.linkedin.com/in/oliviapan)
+**Method:** Geo holdout design with Difference-in-Differences. Markets are split into treatment (spend reduced) and control (spend maintained). DiD regression with two-way fixed effects recovers the incremental revenue attributable to paid search — not just the correlated revenue.
+
+**Covers:** Methodology selection rationale, parallel trends validation, DiD regression with region and time fixed effects, iROAS calculation, business recommendation framing.
+
+---
+
+### P2 — Synthetic Control: Shop the Look
+**Scenario:** A blurred e-commerce platform (Nike-adjacent) launches a 'Shop the Look' UX feature in North America. The feature changes how users discover and bundle products. Does it lift conversion, AOV, bundle mix, and repeat visits — or just look good in dashboards?
+
+**Method:** Synthetic Control with placebo permutation tests. Parallel trends fail explicitly (shown), justifying the SC approach. Donor pool: UK, Germany, France, Netherlands, Australia, Japan, South Korea, Brazil, Mexico. A single set of weights recovers four outcome metrics simultaneously.
+
+**Covers:** Parallel trends failure as the decision gate for SC, scipy weight optimization under convexity constraints, placebo tests as the correct significance method for small donor pools, multi-outcome measurement from one synthetic control.
+
+---
+
+### P3 — Method Comparison: DiD vs. SC vs. PSM
+**Scenario:** A loyalty program ("Voyager Rewards") rolls out three ways simultaneously — geographic regions, a single country market (Japan), and user-level opt-in eligibility. Same business question. Three different right answers depending on data structure.
+
+**Method:** Head-to-head comparison with ground truth ATT (+12%) embedded in all three DGPs so recovery accuracy is scoreable.
+
+- **DiD:** 30 treatment / 60 control regions, two-way fixed effects, parallel trends validated — near-perfect recovery under ideal conditions
+- **Synthetic Control:** Japan single-market launch, common factor donor pool, scipy weight optimization, permutation placebo tests — strong pre-period fit (R² > 0.93)
+- **PSM:** 10K user opt-in design, logistic propensity model, 1:1 nearest-neighbor matching — reduces 32%+ naive selection bias toward truth; residual error explicitly acknowledged as expected, not a bug
+
+**Covers:** Decision matrix (when to use which method), method selection flowchart (unit of treatment → assignment type → method), head-to-head recovery accuracy comparison, honest discussion of residual bias under conditional unconfoundedness.
+
+---
+
+## Skills Demonstrated
+
+**Causal inference methods:** DiD (TWFE), Synthetic Control, Propensity Score Matching, geo holdout design, placebo permutation testing
+
+**Statistical foundations:** Parallel trends validation, propensity score estimation, weight optimization under convexity constraints, permutation-based inference
+
+**Measurement strategy:** Method selection given data structure constraints, iROAS framing, selection bias diagnosis, multi-outcome measurement design
+
+**Tools:** Python (numpy, pandas, scipy, sklearn, matplotlib), Jupyter, statsmodels-compatible regression patterns
+
+---
+
+## Design Philosophy
+
+These notebooks are not toy examples. Each one:
+- Starts with a realistic business decision, not a textbook problem
+- Selects the method based on what the data actually allows — not preference
+- Validates assumptions explicitly before trusting results
+- Quantifies recovery accuracy against ground truth where possible
+- Frames outputs as business recommendations, not statistical artifacts
+
+Method choice is constrained by data structure. The portfolio demonstrates knowing *when* each tool applies — which is the harder skill.
+
+---
+
+*Built as part of an active transition into Director-level incrementality and causal measurement roles.*
