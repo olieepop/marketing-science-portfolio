@@ -43,7 +43,7 @@ All scenarios are travel e-commerce. All methods execute end-to-end with ground 
 ---
 
 ### P3 — Method Comparison: DiD vs. SC vs. PSM
-**Scenario:** A loyalty program ("Voyager Rewards") rolls out three ways simultaneously — geographic regions, a single country market (Japan), and user-level opt-in eligibility. Same business question. Three different right answers depending on data structure.
+**Scenario:** A collectio rolls out three ways simultaneously — geographic regions, a single country market (Japan), and user-level opt-in eligibility. Same business question. Three different right answers depending on data structure.
 
 **Method:** Head-to-head comparison with ground truth ATT (+12%) embedded in all three DGPs so recovery accuracy is scoreable.
 
