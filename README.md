@@ -13,11 +13,11 @@ All scenarios are travel e-commerce. All methods execute end-to-end with ground 
 | 1 | [`geo_holdout_incrementality.ipynb`](geo_holdout_incrementality.ipynb) | $15M paid search budget decision | Geo holdout + DiD | ✅ Live |
 | 2 | [`synthetic_control_shop_the_look.ipynb`](synthetic_control_shop_the_look.ipynb) | 'Shop the Look' UX feature launch — North America | Synthetic Control + placebo permutation | ✅ Live |
 | 3 | [`method_comparison.ipynb`](method_comparison.ipynb) | Loyalty program rollout — same question, three designs | DiD vs. Synthetic Control vs. PSM head-to-head | ✅ Live |
-| 4 | [`compute_allocation.ipynb`](compute_allocation.ipynb) | Compute Budget Allocation Under Constraints | Linear programming (PuLP), shadow prices / sensitivity analysis, Monte Carlo simulation | ✅ Live |
+| 4 | [`compute_allocation.ipynb`](compute_allocation.ipynb) | Frames the Databricks budget problem as a constrained optimization. | Linear programming (PuLP), shadow prices / sensitivity analysis, Monte Carlo simulation | ✅ Live |
 | 5 | `ai_measurement_workflow.ipynb` | AI-augmented analytical workflows | TBD | 🔜 Coming |
-| 6 | `Queueing Ops` | M/M/c Erlang-C + DES validation | TBD | 🔜 Coming |
+| 6 | `Queueing Ops` | Use case to translate "an AI tool deflected 40% of requests" into a staffing cost calculation with a defensible break-even point.  | TBD | 🔜 Coming |
 | 7 | `Geo Experiments` | DiD TWFE + Synthetic Control + power table | TBD | 🔜 Coming |
-| 8 | `Switchbacks` | carry-over test + cluster-robust + CUPED | TBD | 🔜 Coming |
+| 8 | `Switchbacks` | Globally-trained personalization model framing maps directly to Nike | TBD | 🔜 Coming |
 
 
 ---
