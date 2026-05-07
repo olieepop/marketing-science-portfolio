@@ -57,6 +57,9 @@ Applied notebooks demonstrating measurement science, operations research, and ex
 **Scenario:** An analytics engineering org runs multiple pipeline and modeling workloads on a shared Databricks cluster budget. Each workload has a different ROI — some power executive dashboards (high visibility, low tolerance for latency), others run batch ML inference (cost-sensitive, flexible SLA), others support ad-hoc analysis (bursty, unpredictable demand).
 
 **Method:** 
+- Linear programming (PuLP) for deterministic budget allocation
+- Sensitivity analysis on shadow prices — what's the marginal value of another $1K in budget?
+- Stochastic extension: Monte Carlo over demand uncertainty to find robust allocations
 
 - **Techniques:** Linear programming (PuLP), shadow prices / sensitivity analysis, Monte Carlo simulation
 - **Business question:** Given a fixed Databricks compute budget and SLA commitments across pipeline workloads, what allocation maximizes business value delivered?
