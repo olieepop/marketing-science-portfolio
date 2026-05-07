@@ -54,7 +54,7 @@ Readme · MDCopyMarketing Science & Analytics Portfolio
 Applied notebooks demonstrating measurement science, operations research, and experimentation methodology — grounded in ecommerce and marketing analytics contexts.
 
 ### P4 — Compute Budget Allocation Under Constraints
-**Scenario:** 
+**Scenario:** An analytics engineering org runs multiple pipeline and modeling workloads on a shared Databricks cluster budget. Each workload has a different ROI — some power executive dashboards (high visibility, low tolerance for latency), others run batch ML inference (cost-sensitive, flexible SLA), others support ad-hoc analysis (bursty, unpredictable demand).
 
 **Method:** 
 
