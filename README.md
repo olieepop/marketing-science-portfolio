@@ -13,8 +13,9 @@ All scenarios are travel e-commerce. All methods execute end-to-end with ground 
 | 1 | [`geo_holdout_incrementality.ipynb`](geo_holdout_incrementality.ipynb) | $15M paid search budget decision | Geo holdout + DiD | ✅ Live |
 | 2 | [`synthetic_control_shop_the_look.ipynb`](synthetic_control_shop_the_look.ipynb) | 'Shop the Look' UX feature launch — North America | Synthetic Control + placebo permutation | ✅ Live |
 | 3 | [`method_comparison.ipynb`](method_comparison.ipynb) | Loyalty program rollout — same question, three designs | DiD vs. Synthetic Control vs. PSM head-to-head | ✅ Live |
-| 4 | `ai_measurement_workflow.ipynb` | AI-augmented analytical workflows | TBD | 🔜 Coming |
-| 5 | `compute_allocation.ipynb` | Compute Budget Allocation Under Constraints | TBD | ✅ Live |
+| 4 | `compute_allocation.ipynb` | Compute Budget Allocation Under Constraints | Linear programming (PuLP), shadow prices / sensitivity analysis, Monte Carlo simulation | ✅ Live |
+| 5 | `ai_measurement_workflow.ipynb` | AI-augmented analytical workflows | TBD | 🔜 Coming |
+
 
 ---
 
@@ -52,7 +53,11 @@ All scenarios are travel e-commerce. All methods execute end-to-end with ground 
 Readme · MDCopyMarketing Science & Analytics Portfolio
 Applied notebooks demonstrating measurement science, operations research, and experimentation methodology — grounded in ecommerce and marketing analytics contexts.
 
-### P5 — Compute Budget Allocation Under Constraints
+### P4 — Compute Budget Allocation Under Constraints
+**Scenario:** 
+
+**Method:** 
+
 - **Techniques:** Linear programming (PuLP), shadow prices / sensitivity analysis, Monte Carlo simulation
 - **Business question:** Given a fixed Databricks compute budget and SLA commitments across pipeline workloads, what allocation maximizes business value delivered?
 - **Key output:** Shadow price on budget constraint (marginal ROI of budget increases); stochastic allocation under bursty demand.
