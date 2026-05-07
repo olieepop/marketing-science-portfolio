@@ -2,7 +2,7 @@
 
 A portfolio of applied causal inference projects built on realistic synthetic data. Each notebook tackles a real measurement problem a practitioner would face — wrong method for the context, and your number falls apart under scrutiny. These are designed to show not just the math, but the *reasoning* behind method selection.
 
-All scenarios are travel e-commerce. All methods execute end-to-end with ground truth embedded so recovery accuracy is scoreable.
+All scenarios are e-commerce. All methods execute end-to-end with ground truth embedded so recovery accuracy is scoreable.
 
 ---
 
