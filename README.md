@@ -14,6 +14,7 @@ All scenarios are travel e-commerce. All methods execute end-to-end with ground 
 | 2 | [`synthetic_control_shop_the_look.ipynb`](synthetic_control_shop_the_look.ipynb) | 'Shop the Look' UX feature launch — North America | Synthetic Control + placebo permutation | ✅ Live |
 | 3 | [`method_comparison.ipynb`](method_comparison.ipynb) | Loyalty program rollout — same question, three designs | DiD vs. Synthetic Control vs. PSM head-to-head | ✅ Live |
 | 4 | `ai_measurement_workflow.ipynb` | AI-augmented analytical workflows | TBD | 🔜 Coming |
+| 5 | `compute_allocation.ipynb` | Compute Budget Allocation Under Constraints | TBD | ✅ Live |
 
 ---
 
@@ -47,6 +48,14 @@ All scenarios are travel e-commerce. All methods execute end-to-end with ground 
 - **PSM:** 10K user opt-in design, logistic propensity model, 1:1 nearest-neighbor matching — reduces 32%+ naive selection bias toward truth; residual error explicitly acknowledged as expected, not a bug
 
 **Covers:** Decision matrix (when to use which method), method selection flowchart (unit of treatment → assignment type → method), head-to-head recovery accuracy comparison, honest discussion of residual bias under conditional unconfoundedness.
+
+Readme · MDCopyMarketing Science & Analytics Portfolio
+Applied notebooks demonstrating measurement science, operations research, and experimentation methodology — grounded in ecommerce and marketing analytics contexts.
+
+### P5 — Compute Budget Allocation Under Constraints
+- **Techniques:** Linear programming (PuLP), shadow prices / sensitivity analysis, Monte Carlo simulation
+- **Business question:** Given a fixed Databricks compute budget and SLA commitments across pipeline workloads, what allocation maximizes business value delivered?
+- **Key output:** Shadow price on budget constraint (marginal ROI of budget increases); stochastic allocation under bursty demand.
 
 ---
 
